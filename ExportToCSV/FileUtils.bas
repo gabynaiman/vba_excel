@@ -20,19 +20,22 @@ Sub DeleteFile(ByVal FileName As String)
 End Sub
 
 Function ExistsFile(ByVal FileName As String) As Boolean
-   ExistsFile = Exists(FileName, vbArchive)
+   On Error Resume Next
+   ExistsFile = ((GetAttr(FileName) And vbArchive) = vbArchive)
 End Function
 
 Function ExistsDir(ByVal Path As String) As Boolean
-   ExistsDir = Exists(Path, vbDirectory)
-End Function
-
-Private Function Exists(ByVal Resource As String, ByVal Attributes As VbFileAttribute)
-    Exists = (Dir(Resource, Attributes) <> "")
+   On Error Resume Next
+   ExistsDir = ((GetAttr(Path) And vbDirectory) = vbDirectory)
 End Function
 
 Sub MkDir(ByVal Path As String)
     If Not ExistsDir(Path) Then
         FileSystem.MkDir Path
     End If
+End Sub
+
+Sub MkDirHidden(ByVal Path As String)
+    MkDir Path
+    SetAttr Path, vbHidden
 End Sub

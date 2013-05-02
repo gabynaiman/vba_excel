@@ -83,7 +83,7 @@ End Sub
 
 Private Function TargetPath(ByVal Workbook As Workbook)
     TargetPath = Workbook.Path & "\" & "." & FileUtils.WithoutExtension(Workbook.Name)
-    FileUtils.MkDir (TargetPath)
+    FileUtils.MkDirHidden TargetPath
 End Function
 
 Private Function SheetFileName(ByVal Sheet As Worksheet)
