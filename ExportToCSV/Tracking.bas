@@ -1,5 +1,14 @@
 Attribute VB_Name = "Tracking"
 Private ChangedSheets As Object
+Private OriginalFileName As String
+
+Sub SetFileName(ByVal file_name As String)
+    OriginalFileName = file_name
+End Sub
+
+Function GetFileName()
+    GetFileName = OriginalFileName
+End Function
 
 Sub Change(ByVal Sheet As Worksheet)
     If ChangedSheets Is Nothing Then
