@@ -1,0 +1,1 @@
+Se debe agregar una custom property al excel con nombre Target File. El contenido de esta variable debe ser el nombre de la carpeta en que queremos que genere los csv de ese excel. Ejemplo: Spec

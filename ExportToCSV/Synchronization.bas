@@ -82,7 +82,7 @@ Private Sub SaveAsCSV(ByVal Sheet As Worksheet)
 End Sub
 
 Private Function TargetPath(ByVal Workbook As Workbook)
-    TargetPath = Workbook.Path & "\" & "." & FileUtils.WithoutExtension(Workbook.Name)
+    TargetPath = Workbook.Path & "\" & "." & Workbook.CustomDocumentProperties("Target File")
     FileUtils.MkDirHidden TargetPath
 End Function
 
