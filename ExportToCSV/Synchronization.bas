@@ -43,7 +43,7 @@ Private Sub SaveMissingFiles(ByVal Workbook As Workbook)
 End Sub
 
 Private Sub SaveChangedSheets()
-    Set AllSheets = Tracking.Sheets
+    Set AllSheets = Tracking.AllChangedSheets
     For I = 1 To AllSheets.Count
         ShowProgress "Saving changes", I / AllSheets.Count, AllSheets(I).Name
         SaveAsCSV AllSheets(I)

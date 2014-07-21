@@ -21,12 +21,12 @@ Sub Clear()
     Set ChangedSheets = Nothing
 End Sub
 
-Function Sheets()
-    Set Sheets = New Collection
+Function AllChangedSheets()
+    Set AllChangedSheets = New Collection
     If Not ChangedSheets Is Nothing Then
         For Each Sheet In ChangedSheets
             On Error Resume Next
-            Sheets.Add Sheet
+            AllChangedSheets.Add Sheet
         Next
     End If
 End Function
